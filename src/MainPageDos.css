@@ -1,0 +1,1414 @@
+/* =========================================
+   BASE Y PALETA
+   ========================================= */
+
+.cosmo-page {
+  --cosmo-bg: #faf7f0;
+  --cosmo-surface: #fffdf8;
+  --cosmo-cream: #f0e8d9;
+  --cosmo-text: #35271f;
+  --cosmo-muted: #71665b;
+  --cosmo-green: #405b42;
+  --cosmo-green-dark: #2c422e;
+  --cosmo-sage: #dce6d5;
+  --cosmo-peach: #f1ded0;
+  --cosmo-lilac: #e8e1ef;
+  --cosmo-border: #e4ddcf;
+  --cosmo-shadow: 0 18px 50px rgb(53 39 31 / 8%);
+  --cosmo-radius: 28px;
+  --cosmo-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: clip;
+  color: var(--cosmo-text);
+  background:
+    radial-gradient(
+      ellipse at 95% 4%,
+      rgb(220 230 213 / 55%),
+      transparent 30%
+    ),
+    radial-gradient(
+      ellipse at 0% 35%,
+      rgb(241 222 208 / 35%),
+      transparent 24%
+    ),
+    var(--cosmo-bg);
+
+  font-family:
+    "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  isolation: isolate;
+}
+
+.cosmo-page *,
+.cosmo-page *::before,
+.cosmo-page *::after {
+  box-sizing: border-box;
+}
+
+.cosmo-page :where(h1, h2, h3, p, figure, ul) {
+  margin: 0;
+}
+
+.cosmo-page :where(a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cosmo-page :where(button) {
+  font: inherit;
+}
+
+.cosmo-page :where(img) {
+  display: block;
+  max-width: 100%;
+}
+
+.cosmo-page :where(button, a) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cosmo-page :where(a, button):focus-visible {
+  outline: 3px solid var(--cosmo-green);
+  outline-offset: 5px;
+}
+
+.cosmo-page :where(main, section)[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.cosmo-page ::selection {
+  color: var(--cosmo-green-dark);
+  background: var(--cosmo-sage);
+}
+
+.cosmo-page .cosmo-container {
+  width: min(1180px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.cosmo-page .cosmo-section {
+  padding-block: clamp(56px, 7vw, 96px);
+}
+
+.cosmo-page section[id],
+.cosmo-page #main-content {
+  scroll-margin-top: 110px;
+}
+
+.cosmo-page h2 {
+  max-width: 760px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.cosmo-page h3 {
+  font-size: 1.24rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.cosmo-page .cosmo-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 20px;
+  color: var(--cosmo-green);
+  font-size: 0.73rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.cosmo-page .cosmo-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--cosmo-green);
+  box-shadow: 0 0 0 5px rgb(64 91 66 / 9%);
+}
+
+.cosmo-page .cosmo-skip-link {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 200;
+  padding: 12px 18px;
+  border-radius: 12px;
+  color: white;
+  background: var(--cosmo-green-dark);
+  transform: translateY(-160%);
+  transition: transform 180ms ease;
+}
+
+.cosmo-page .cosmo-skip-link:focus {
+  transform: translateY(0);
+}
+
+/* =========================================
+   CABECERA Y NAVEGACIÓN
+   ========================================= */
+
+.cosmo-page .cosmo-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgb(228 221 207 / 80%);
+  background: rgb(250 247 240 / 94%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.cosmo-page .cosmo-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 86px;
+}
+
+.cosmo-page .cosmo-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  width: fit-content;
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.07em;
+}
+
+.cosmo-page .cosmo-logo-accent {
+  color: var(--cosmo-green);
+}
+
+.cosmo-page .cosmo-logo-symbol {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--cosmo-green);
+  background: var(--cosmo-sage);
+  font-size: 1.8rem;
+  transition: transform 500ms var(--cosmo-ease);
+}
+
+.cosmo-page .cosmo-logo:hover .cosmo-logo-symbol {
+  transform: rotate(90deg);
+}
+
+.cosmo-page .cosmo-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.cosmo-page .cosmo-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: var(--cosmo-muted);
+  font-size: 0.88rem;
+  font-weight: 650;
+  white-space: nowrap;
+  transition:
+    color 200ms ease,
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.cosmo-page .cosmo-nav-link:hover {
+  color: var(--cosmo-green-dark);
+  background: rgb(220 230 213 / 55%);
+}
+
+.cosmo-page .cosmo-nav-link.is-active {
+  color: var(--cosmo-green-dark);
+  background: var(--cosmo-sage);
+}
+
+.cosmo-page .cosmo-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  order: 3;
+}
+
+.cosmo-page .cosmo-language {
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid var(--cosmo-border);
+  border-radius: 999px;
+  background: var(--cosmo-surface);
+}
+
+.cosmo-page .cosmo-language button {
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  min-height: 36px;
+  padding: 5px 9px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--cosmo-muted);
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    background 200ms ease;
+}
+
+.cosmo-page .cosmo-language button:hover {
+  color: var(--cosmo-green-dark);
+  background: var(--cosmo-sage);
+}
+
+.cosmo-page .cosmo-language button[aria-pressed="true"] {
+  color: white;
+  background: var(--cosmo-green);
+}
+
+.cosmo-page .cosmo-menu-toggle {
+  display: none;
+  position: relative;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  border: 1px solid var(--cosmo-border);
+  border-radius: 14px;
+  background: var(--cosmo-surface);
+  cursor: pointer;
+}
+
+.cosmo-page .cosmo-menu-toggle span {
+  position: absolute;
+  left: 12px;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--cosmo-green-dark);
+  transition:
+    transform 250ms ease,
+    opacity 200ms ease,
+    top 250ms ease;
+}
+
+.cosmo-page .cosmo-menu-toggle span:nth-child(1) {
+  top: 15px;
+}
+
+.cosmo-page .cosmo-menu-toggle span:nth-child(2) {
+  top: 21px;
+}
+
+.cosmo-page .cosmo-menu-toggle span:nth-child(3) {
+  top: 27px;
+}
+
+.cosmo-page .cosmo-menu-toggle.is-open span:nth-child(1) {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.cosmo-page .cosmo-menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.cosmo-page .cosmo-menu-toggle.is-open span:nth-child(3) {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.cosmo-page .cosmo-hero {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: clamp(30px, 5vw, 72px);
+  min-height: 680px;
+  padding-block: 76px 92px;
+}
+
+.cosmo-page .cosmo-hero-copy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  animation: cosmo-enter 850ms var(--cosmo-ease) both;
+}
+
+.cosmo-page .cosmo-hero h1 {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 24px;
+  font-size: clamp(3.8rem, 7.2vw, 6.3rem);
+  font-weight: 850;
+  line-height: 0.98;
+  letter-spacing: -0.08em;
+}
+
+.cosmo-page .cosmo-hero h1 > span:first-child {
+  color: var(--cosmo-green);
+}
+
+.cosmo-page .cosmo-title-star {
+  position: absolute;
+  top: -23px;
+  right: -28px;
+  color: #9b7049;
+  font-size: 2rem;
+  letter-spacing: 0;
+  animation: cosmo-star-turn 14s linear infinite;
+}
+
+.cosmo-page .cosmo-hero-description {
+  max-width: 580px;
+  margin-bottom: 18px;
+  font-size: clamp(1.05rem, 1.7vw, 1.23rem);
+  line-height: 1.75;
+}
+
+.cosmo-page .cosmo-hero-detail {
+  max-width: 520px;
+  color: var(--cosmo-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.cosmo-page .cosmo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.cosmo-page .cosmo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 14px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 750;
+  line-height: 1.4;
+  text-align: center;
+  transition:
+    transform 250ms var(--cosmo-ease),
+    background 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.cosmo-page .cosmo-button > span {
+  font-size: 1.15rem;
+  transition: transform 250ms var(--cosmo-ease);
+}
+
+.cosmo-page .cosmo-button-primary {
+  color: white;
+  background: var(--cosmo-green);
+  box-shadow: 0 8px 20px rgb(64 91 66 / 15%);
+}
+
+.cosmo-page .cosmo-button-primary:hover {
+  background: var(--cosmo-green-dark);
+  box-shadow: 0 12px 24px rgb(64 91 66 / 22%);
+  transform: translateY(-3px);
+}
+
+.cosmo-page .cosmo-button:hover > span {
+  transform: translate(2px, -2px);
+}
+
+.cosmo-page .cosmo-button-outline {
+  color: var(--cosmo-green-dark);
+  border-color: #b9c7b4;
+  background: transparent;
+}
+
+.cosmo-page .cosmo-button-outline:hover {
+  border-color: var(--cosmo-green);
+  background: var(--cosmo-sage);
+  transform: translateY(-3px);
+}
+
+.cosmo-page .cosmo-hero-figure {
+  position: relative;
+  min-width: 0;
+  padding: 24px 10px 0;
+  animation: cosmo-enter 1000ms 120ms var(--cosmo-ease) both;
+}
+
+.cosmo-page .cosmo-hero-image-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  padding: 34px;
+  border: 1px solid rgb(64 91 66 / 10%);
+  border-radius: 46% 46% 36% 36%;
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      #f8f5e9 0%,
+      #e4eadb 52%,
+      #cddac2 100%
+    );
+}
+
+.cosmo-page .cosmo-hero-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 18px rgb(53 39 31 / 17%));
+  animation: cosmo-float 6s ease-in-out infinite;
+}
+
+.cosmo-page .cosmo-hero-orbit {
+  position: absolute;
+  z-index: -1;
+  inset: 5px -7px 48px;
+  border: 1px solid #c2cdbb;
+  border-radius: 50%;
+  transform: rotate(-12deg);
+}
+
+.cosmo-page .cosmo-floating-star {
+  position: absolute;
+  z-index: 3;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cosmo-page .cosmo-floating-star-one {
+  top: 12px;
+  right: 4px;
+  color: var(--cosmo-green);
+  font-size: 4rem;
+  animation: cosmo-star-turn 22s linear infinite;
+}
+
+.cosmo-page .cosmo-floating-star-two {
+  bottom: 94px;
+  left: -7px;
+  color: #a17148;
+  font-size: 2.7rem;
+  animation: cosmo-float 5s ease-in-out infinite;
+}
+
+.cosmo-page .cosmo-product-badge {
+  position: absolute;
+  right: -2px;
+  bottom: 90px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-width: calc(100% - 24px);
+  padding: 12px 17px;
+  border: 1px solid var(--cosmo-border);
+  border-radius: 16px;
+  color: var(--cosmo-green-dark);
+  background: var(--cosmo-surface);
+  box-shadow: var(--cosmo-shadow);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transform: rotate(-5deg);
+}
+
+.cosmo-page .cosmo-product-badge > span {
+  font-size: 1.3rem;
+}
+
+.cosmo-page .cosmo-hero-figure figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 26px;
+  color: var(--cosmo-muted);
+  font-size: 0.83rem;
+  text-align: center;
+}
+
+.cosmo-page .cosmo-hero-figure figcaption > span {
+  color: var(--cosmo-green);
+}
+
+/* =========================================
+   PRODUCTO
+   ========================================= */
+
+.cosmo-page .cosmo-experiences {
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
+  align-items: center;
+  gap: clamp(32px, 7vw, 100px);
+  border-top: 1px solid var(--cosmo-border);
+}
+
+.cosmo-page .cosmo-experience-copy {
+  min-width: 0;
+}
+
+.cosmo-page .cosmo-experience-copy h2 {
+  margin-bottom: 24px;
+}
+
+.cosmo-page .cosmo-lead {
+  margin-bottom: 17px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.cosmo-page .cosmo-body-copy {
+  color: var(--cosmo-muted);
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.cosmo-page .cosmo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 26px;
+  padding: 0;
+  list-style: none;
+}
+
+.cosmo-page .cosmo-tags li {
+  padding: 8px 13px;
+  border: 1px solid #cbd6c5;
+  border-radius: 999px;
+  color: var(--cosmo-green-dark);
+  background: rgb(220 230 213 / 45%);
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.cosmo-page .cosmo-experience-figure {
+  position: relative;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid var(--cosmo-border);
+  border-radius: 34px;
+  background: var(--cosmo-cream);
+  transform: rotate(2deg);
+  transition: transform 600ms var(--cosmo-ease);
+}
+
+.cosmo-page .cosmo-experience-figure:hover {
+  transform: rotate(0);
+}
+
+.cosmo-page .cosmo-experience-figure img {
+  width: 100%;
+  aspect-ratio: 4 / 4.3;
+  border-radius: 23px;
+  object-fit: cover;
+  background: var(--cosmo-sage);
+}
+
+.cosmo-page .cosmo-image-stamp {
+  position: absolute;
+  right: -12px;
+  bottom: 24px;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border: 6px solid var(--cosmo-bg);
+  border-radius: 50%;
+  color: var(--cosmo-green-dark);
+  background: var(--cosmo-sage);
+  font-size: 3rem;
+}
+
+/* =========================================
+   ENCABEZADOS Y TARJETAS
+   ========================================= */
+
+.cosmo-page .cosmo-section-heading {
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cosmo-page .cosmo-section-heading .cosmo-eyebrow {
+  justify-content: center;
+}
+
+.cosmo-page .cosmo-section-heading h2 {
+  margin-inline: auto;
+  margin-bottom: 20px;
+}
+
+.cosmo-page .cosmo-section-heading > p:not(.cosmo-eyebrow) {
+  max-width: 630px;
+  margin-inline: auto;
+  color: var(--cosmo-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.cosmo-page .cosmo-section-heading .cosmo-moments-detail {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.cosmo-page .cosmo-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cosmo-page .cosmo-value-card {
+  position: relative;
+  min-width: 0;
+  padding: 30px;
+  border: 1px solid var(--cosmo-border);
+  border-radius: var(--cosmo-radius);
+  background: var(--cosmo-surface);
+  transition:
+    transform 350ms var(--cosmo-ease),
+    border-color 350ms ease,
+    box-shadow 350ms ease;
+}
+
+.cosmo-page .cosmo-value-card:nth-child(1) {
+  background: #edf1e7;
+}
+
+.cosmo-page .cosmo-value-card:nth-child(2) {
+  background: #f6ebe2;
+}
+
+.cosmo-page .cosmo-value-card:nth-child(3) {
+  background: #eee9f3;
+}
+
+.cosmo-page .cosmo-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.cosmo-page .cosmo-card-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgb(64 91 66 / 12%);
+  border-radius: 17px;
+  color: var(--cosmo-green);
+  background: rgb(255 253 248 / 65%);
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: transform 400ms var(--cosmo-ease);
+}
+
+.cosmo-page .cosmo-card-number {
+  color: var(--cosmo-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.cosmo-page .cosmo-value-card h3 {
+  margin-bottom: 14px;
+}
+
+.cosmo-page .cosmo-value-card > p {
+  color: var(--cosmo-muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.cosmo-page .cosmo-value-card-soft:nth-child(n) {
+  background: var(--cosmo-surface);
+}
+
+.cosmo-page .cosmo-value-card-soft:nth-child(1) .cosmo-card-icon {
+  background: var(--cosmo-sage);
+}
+
+.cosmo-page .cosmo-value-card-soft:nth-child(2) .cosmo-card-icon {
+  background: var(--cosmo-peach);
+}
+
+.cosmo-page .cosmo-value-card-soft:nth-child(3) .cosmo-card-icon {
+  background: var(--cosmo-lilac);
+}
+
+@media (hover: hover) {
+  .cosmo-page .cosmo-value-card:hover {
+    border-color: #b8c5b0;
+    box-shadow: var(--cosmo-shadow);
+    transform: translateY(-7px);
+  }
+
+  .cosmo-page .cosmo-value-card:hover .cosmo-card-icon {
+    transform: rotate(-10deg) scale(1.07);
+  }
+}
+
+/* =========================================
+   CONTACTO
+   ========================================= */
+
+.cosmo-page .cosmo-contact-section {
+  padding-block: 36px 86px;
+}
+
+.cosmo-page .cosmo-contact-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  overflow: hidden;
+  padding: clamp(32px, 5vw, 58px);
+  border-radius: 34px;
+  color: var(--cosmo-surface);
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgb(220 230 213 / 12%),
+      transparent 45%
+    ),
+    var(--cosmo-green-dark);
+}
+
+.cosmo-page .cosmo-contact-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 610px;
+}
+
+.cosmo-page .cosmo-contact-panel .cosmo-eyebrow {
+  color: #d3dfc9;
+}
+
+.cosmo-page .cosmo-contact-panel h2 {
+  margin-bottom: 18px;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+}
+
+.cosmo-page .cosmo-contact-copy > p:last-child {
+  color: #e0e7d9;
+  font-size: 0.95rem;
+}
+
+.cosmo-page .cosmo-contact-panel .cosmo-actions {
+  position: relative;
+  z-index: 1;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  max-width: 260px;
+  margin-top: 0;
+}
+
+.cosmo-page .cosmo-button-light {
+  color: var(--cosmo-green-dark);
+  background: var(--cosmo-surface);
+}
+
+.cosmo-page .cosmo-button-light:hover {
+  background: var(--cosmo-sage);
+  transform: translateY(-3px);
+}
+
+.cosmo-page .cosmo-button-ghost {
+  border-color: #9dac96;
+  color: var(--cosmo-surface);
+  background: transparent;
+}
+
+.cosmo-page .cosmo-button-ghost:hover {
+  background: rgb(255 255 255 / 10%);
+  transform: translateY(-3px);
+}
+
+.cosmo-page .cosmo-contact-panel :where(a):focus-visible {
+  outline-color: var(--cosmo-surface);
+}
+
+.cosmo-page .cosmo-contact-star {
+  position: absolute;
+  right: 18%;
+  bottom: -70px;
+  color: rgb(220 230 213 / 8%);
+  font-size: 20rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.cosmo-page .cosmo-footer {
+  padding-block: 38px 26px;
+  border-top: 1px solid var(--cosmo-border);
+}
+
+.cosmo-page .cosmo-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding-bottom: 32px;
+}
+
+.cosmo-page .cosmo-footer-brand > p {
+  margin-top: 14px;
+  color: var(--cosmo-muted);
+  font-size: 0.86rem;
+}
+
+.cosmo-page .cosmo-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+.cosmo-page .cosmo-footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--cosmo-muted);
+  font-size: 0.86rem;
+  font-weight: 650;
+  transition: color 200ms ease;
+}
+
+.cosmo-page .cosmo-footer-links a:hover {
+  color: var(--cosmo-green);
+}
+
+.cosmo-page .cosmo-footer-bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--cosmo-border);
+  color: var(--cosmo-muted);
+  font-size: 0.76rem;
+}
+
+.cosmo-page .cosmo-footer-bottom > p:first-child {
+  flex-shrink: 0;
+}
+
+.cosmo-page .cosmo-footer-bottom > p:last-child {
+  max-width: 650px;
+  text-align: right;
+}
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+
+.cosmo-page .cosmo-reveal-ready {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 800ms var(--cosmo-ease),
+    transform 800ms var(--cosmo-ease);
+}
+
+/* También revela el contenido si recibe foco por teclado. */
+.cosmo-page .cosmo-reveal-ready.is-visible,
+.cosmo-page .cosmo-reveal-ready:focus-within {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cosmo-page .cosmo-reveal-ready.is-visible .cosmo-value-card {
+  animation:
+    cosmo-enter 650ms var(--card-delay, 0ms)
+    var(--cosmo-ease) backwards;
+}
+
+@keyframes cosmo-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cosmo-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes cosmo-star-turn {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cosmo-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TABLET Y MENÚ MÓVIL
+   ========================================= */
+
+@media (max-width: 980px) {
+  .cosmo-page .cosmo-container {
+    width: min(1180px, calc(100% - 48px));
+  }
+
+  .cosmo-page .cosmo-nav {
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 78px;
+  }
+
+  .cosmo-page .cosmo-nav-controls {
+    margin-left: auto;
+  }
+
+  .cosmo-page .cosmo-menu-toggle {
+    display: block;
+  }
+
+  .cosmo-page .cosmo-nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: 0;
+    display: none;
+    align-items: stretch;
+    gap: 5px;
+    max-height: calc(100dvh - 108px);
+    overflow-y: auto;
+    margin-left: 0;
+    padding: 12px;
+    border: 1px solid var(--cosmo-border);
+    border-radius: 22px;
+    background: var(--cosmo-surface);
+    box-shadow: 0 20px 50px rgb(53 39 31 / 14%);
+  }
+
+  .cosmo-page .cosmo-nav-links.is-open {
+    display: flex;
+    flex-direction: column;
+    animation: cosmo-menu-enter 250ms var(--cosmo-ease) both;
+  }
+
+  .cosmo-page .cosmo-nav-link {
+    justify-content: flex-start;
+    min-height: 48px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    white-space: normal;
+  }
+
+  .cosmo-page .cosmo-hero {
+    gap: 30px;
+    min-height: auto;
+    padding-block: 64px 70px;
+  }
+
+  .cosmo-page .cosmo-hero h1 {
+    font-size: clamp(3.2rem, 7.2vw, 5rem);
+  }
+
+  .cosmo-page .cosmo-hero-image-wrap {
+    padding: 22px;
+  }
+
+  .cosmo-page .cosmo-product-badge {
+    right: 0;
+    bottom: 75px;
+    padding: 10px 13px;
+    font-size: 0.72rem;
+  }
+
+  .cosmo-page .cosmo-experiences {
+    gap: 36px;
+  }
+
+  .cosmo-page .cosmo-values-grid {
+    gap: 14px;
+  }
+
+  .cosmo-page .cosmo-value-card {
+    padding: 24px 20px;
+  }
+
+  .cosmo-page .cosmo-contact-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+  }
+
+  .cosmo-page .cosmo-contact-panel .cosmo-actions {
+    max-width: none;
+  }
+}
+
+/* =========================================
+   MÓVIL
+   ========================================= */
+
+@media (max-width: 680px) {
+  .cosmo-page .cosmo-container {
+    width: calc(100% - 36px);
+  }
+
+  .cosmo-page .cosmo-section {
+    padding-block: 50px;
+  }
+
+  .cosmo-page .cosmo-nav {
+    min-height: 72px;
+    gap: 10px;
+  }
+
+  .cosmo-page .cosmo-logo {
+    gap: 7px;
+    font-size: 1.4rem;
+  }
+
+  .cosmo-page .cosmo-logo-symbol {
+    width: 32px;
+    height: 32px;
+    font-size: 1.5rem;
+  }
+
+  .cosmo-page .cosmo-nav-controls {
+    gap: 8px;
+  }
+
+  .cosmo-page .cosmo-language {
+    padding: 3px;
+  }
+
+  .cosmo-page .cosmo-language button {
+    min-width: 35px;
+    min-height: 35px;
+    padding-inline: 7px;
+    font-size: 0.7rem;
+  }
+
+  .cosmo-page .cosmo-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    padding-block: 48px 54px;
+  }
+
+  .cosmo-page .cosmo-hero-copy {
+    max-width: 560px;
+  }
+
+  .cosmo-page .cosmo-eyebrow {
+    margin-bottom: 17px;
+    font-size: 0.67rem;
+    letter-spacing: 0.12em;
+  }
+
+  .cosmo-page .cosmo-hero h1 {
+    margin-bottom: 22px;
+    font-size: clamp(3.4rem, 12.5vw, 5.1rem);
+  }
+
+  .cosmo-page .cosmo-title-star {
+    top: -15px;
+    right: -21px;
+    font-size: 1.5rem;
+  }
+
+  .cosmo-page .cosmo-hero-description {
+    font-size: 1.05rem;
+  }
+
+  .cosmo-page .cosmo-hero-detail {
+    font-size: 0.9rem;
+  }
+
+  .cosmo-page .cosmo-actions {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .cosmo-page .cosmo-button {
+    min-height: 50px;
+    padding: 13px 18px;
+    font-size: 0.82rem;
+  }
+
+  .cosmo-page .cosmo-hero-figure {
+    width: min(100%, 430px);
+    margin-inline: auto;
+    padding-inline: 14px;
+  }
+
+  .cosmo-page .cosmo-hero-image-wrap {
+    padding: 28px;
+  }
+
+  .cosmo-page .cosmo-hero-orbit {
+    inset: 7px 1px 45px;
+  }
+
+  .cosmo-page .cosmo-floating-star-one {
+    right: 5px;
+    font-size: 3.4rem;
+  }
+
+  .cosmo-page .cosmo-floating-star-two {
+    left: 0;
+    font-size: 2.2rem;
+  }
+
+  .cosmo-page .cosmo-product-badge {
+    right: 4px;
+    bottom: 76px;
+    font-size: 0.74rem;
+  }
+
+  .cosmo-page .cosmo-hero-figure figcaption {
+    margin-top: 22px;
+    font-size: 0.76rem;
+  }
+
+  .cosmo-page .cosmo-experiences {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .cosmo-page h2 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+  }
+
+  .cosmo-page .cosmo-lead {
+    font-size: 1rem;
+  }
+
+  .cosmo-page .cosmo-experience-figure {
+    width: min(100%, 450px);
+    margin-inline: auto;
+    padding: 10px;
+    border-radius: 28px;
+    transform: rotate(1deg);
+  }
+
+  .cosmo-page .cosmo-experience-figure img {
+    aspect-ratio: 4 / 3.6;
+    border-radius: 20px;
+  }
+
+  .cosmo-page .cosmo-image-stamp {
+    right: -5px;
+    width: 64px;
+    height: 64px;
+    font-size: 2.4rem;
+  }
+
+  .cosmo-page .cosmo-section-heading {
+    margin-bottom: 28px;
+  }
+
+  .cosmo-page .cosmo-section-heading > p:not(.cosmo-eyebrow) {
+    font-size: 0.94rem;
+  }
+
+  .cosmo-page .cosmo-values-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .cosmo-page .cosmo-value-card {
+    padding: 26px;
+    border-radius: 24px;
+  }
+
+  .cosmo-page .cosmo-card-top {
+    margin-bottom: 20px;
+  }
+
+  .cosmo-page .cosmo-contact-section {
+    padding-block: 20px 56px;
+  }
+
+  .cosmo-page .cosmo-contact-panel {
+    gap: 24px;
+    padding: 30px 24px;
+    border-radius: 26px;
+  }
+
+  .cosmo-page .cosmo-contact-panel h2 {
+    font-size: 2rem;
+  }
+
+  .cosmo-page .cosmo-contact-panel .cosmo-actions {
+    width: 100%;
+  }
+
+  .cosmo-page .cosmo-contact-star {
+    right: -50px;
+    bottom: -45px;
+    font-size: 16rem;
+  }
+
+  .cosmo-page .cosmo-footer {
+    padding-top: 30px;
+  }
+
+  .cosmo-page .cosmo-footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 24px;
+  }
+
+  .cosmo-page .cosmo-footer-links {
+    gap: 6px 20px;
+  }
+
+  .cosmo-page .cosmo-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cosmo-page .cosmo-footer-bottom > p:last-child {
+    text-align: left;
+  }
+}
+
+/* =========================================
+   MÓVILES PEQUEÑOS
+   ========================================= */
+
+@media (max-width: 380px) {
+  .cosmo-page .cosmo-container {
+    width: calc(100% - 28px);
+  }
+
+  .cosmo-page .cosmo-logo {
+    font-size: 1.2rem;
+  }
+
+  .cosmo-page .cosmo-logo-symbol {
+    width: 27px;
+    height: 27px;
+    font-size: 1.3rem;
+  }
+
+  .cosmo-page .cosmo-nav-controls {
+    gap: 6px;
+  }
+
+  .cosmo-page .cosmo-language button {
+    min-width: 30px;
+    padding-inline: 5px;
+  }
+
+  .cosmo-page .cosmo-hero h1 {
+    font-size: 3.1rem;
+  }
+
+  .cosmo-page .cosmo-hero-copy .cosmo-actions,
+  .cosmo-page .cosmo-contact-panel .cosmo-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cosmo-page .cosmo-hero-copy .cosmo-button,
+  .cosmo-page .cosmo-contact-panel .cosmo-button {
+    width: 100%;
+  }
+
+  .cosmo-page .cosmo-value-card {
+    padding: 22px;
+  }
+}
+
+/* =========================================
+   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cosmo-page *,
+  .cosmo-page *::before,
+  .cosmo-page *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cosmo-page .cosmo-reveal-ready {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .cosmo-page .cosmo-hero-image,
+  .cosmo-page .cosmo-floating-star,
+  .cosmo-page .cosmo-title-star {
+    transform: none !important;
+  }
+}
